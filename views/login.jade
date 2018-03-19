@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    style.
+        label {
+            font-size: 22px;
+            font-weight: lighter;
+
+        }
+    h2.page-header Login
+        h2
+        if errors
+            each error, i in errors
+                div.alert.alert-danger #{error.msg}
+        .database
+            form(action='/users/login', method='POST')
+                label Username
+                br
+                input.form-control(type='name', name='username', placeholder='Username')
+                br
+
+                label Password
+                br
+                input.form-control(type='password', name='password', placeholder='Password')
+                br
+
+                button.btn.btn-secondary(type='submit') Login

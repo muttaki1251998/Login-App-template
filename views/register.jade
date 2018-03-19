@@ -1,0 +1,36 @@
+extends layout
+block content
+    h2.page-header Register
+            h2 Fill out the form
+            ul.errors
+                if errors
+                    each error, i in errors
+                        div.alert.alert-danger #{error.msg}
+                .database
+                    form(action='/users/register' method='post')
+                        label Name
+                        br
+                        input.form-control(type='name', name='name', placeholder='Name')
+                        br
+                        br
+                        label Username
+                        br
+                        input.form-control(type='name', name='username', placeholder='Username')
+                        br
+                        br
+                        label Email
+                        br
+                        input.form-control(type='name', name='email', placeholder='Email')
+                        br
+                        br
+                        label Password
+                        br
+                        input.form-control(type='password', name='password', placeholder='Password')
+                        br
+                        br
+                        label Confirm Password
+                        br
+                        input.form-control(type='password', name='password2', placeholder='Password')
+                        br
+
+                        button.btn.btn-secondary(type='submit') Submit

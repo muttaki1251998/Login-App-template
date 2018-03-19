@@ -1,0 +1,39 @@
+doctype html
+html(lang='en')
+  head
+    title NodeAuth
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    block scripts
+      script(src='/javascripts/bootstrap.min.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+
+  body
+      nav.navbar.navbar-default
+        .container-fluid
+          // Logo
+          .navbar-header
+            a.navbar-brand(href='/') NodeAuth
+          // Menu
+          div
+              ul.nav.navbar-nav
+                  if user
+                      li(class=(title == 'Profile' ? 'active' : ''))
+                          a(href='/') Profile
+                  if !user
+                      li(class=(title == 'Register' ? 'active' : ''))
+                          a(href='/users/register') Register
+                      li(class=(title == 'Login' ? 'active' : ''))
+                          a(href='/users/login') Login
+              ul.nav.navbar-nav.navbar-right
+                  if user
+                      li
+                          a(href='/users/logout') Logout
+      .container
+        != messages()
+        block content
+
+   block scripts
+    script(src='javascripts/bootstrap.min.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+
